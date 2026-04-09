@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attrition Prediction</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #eef4ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+        }
+
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background: #dbeafe;
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fbff;
+        }
+
+        tr:hover {
+            background: #eff6ff;
+        }
+
+        button {
+            padding: 8px 14px;
+            background: #93c5fd;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #1e3a8a;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #60a5fa;
+            color: white;
+        }
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Employee Attrition Prediction</h2>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Job Role</th>
+                <th>Action</th>
+            </tr>
+
+            {% for emp in employees %}
+            <tr>
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.department }}</td>
+                <td>{{ emp.job_role }}</td>
+                <td>
+                    <form method="post" action="/admin/predict/{{ emp.id }}">
+                        <button type="submit">Predict Attrition</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div class="footer">
+            <a href="/admin">← Back to Admin Dashboard</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

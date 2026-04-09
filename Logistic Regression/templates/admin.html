@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #eef4ff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background: #dbeafe;
+            color: #1e3a8a;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fbff;
+        }
+
+        button {
+            padding: 6px 12px;
+            background: #93c5fd;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #60a5fa;
+        }
+
+        .nav {
+            margin-top: 20px;
+        }
+
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Admin – Leave Requests</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Employee</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for leave in leaves %}
+        <tr>
+            <td>{{ leave.id }}</td>
+            <td>{{ leave.employee_name }}</td>
+            <td>{{ leave.reason }}</td>
+            <td>{{ leave.status }}</td>
+            <td>
+                {% if leave.status == "Submitted" %}
+                <form method="post" action="/approve/{{ leave.id }}">
+                    <button type="submit">Approve</button>
+                </form>
+                {% else %}
+                Approved
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="nav">
+        <a href="/admin/attrition">Attrition Prediction</a>
+        <a href="/export-leaves">Export CSV</a>
+        <a href="/">Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>

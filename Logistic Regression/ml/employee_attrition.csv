@@ -1,0 +1,16 @@
+Age,Gender,Department,JobRole,JobLevel,MonthlyIncome,YearsAtCompany,OverTime,Attrition
+23,Male,IT,SDE,1,25000,1,Yes,Yes
+35,Female,HR,HR Executive,3,60000,5,No,No
+29,Male,IT,SDE,2,40000,3,Yes,Yes
+45,Female,Finance,Manager,4,80000,10,No,No
+31,Male,IT,QA Engineer,2,45000,4,Yes,Yes
+38,Female,Sales,Sales Executive,3,70000,7,No,No
+26,Male,IT,Intern,1,30000,2,Yes,Yes
+50,Female,Operations,Director,5,90000,15,No,No
+28,Female,IT,SDE,2,42000,3,Yes,Yes
+41,Male,Finance,Senior Analyst,4,78000,9,No,No
+34,Male,Sales,Sales Manager,3,65000,6,Yes,No
+27,Female,HR,Recruiter,2,38000,2,Yes,Yes
+48,Male,Operations,Plant Manager,5,95000,18,No,No
+33,Female,IT,DevOps Engineer,3,72000,6,Yes,No
+39,Male,Finance,Accountant,3,68000,8,No,No

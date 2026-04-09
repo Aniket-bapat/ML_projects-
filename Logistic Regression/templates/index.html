@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HRMS Dashboard</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #f4f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: #2c5aa0;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        a.button {
+            text-decoration: none;
+            padding: 12px 18px;
+            background: #dbeafe;
+            color: #1e3a8a;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        a.button:hover {
+            background: #bfdbfe;
+        }
+
+        .logout {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .logout:hover {
+            background: #fecaca;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>Welcome {{ user or "Guest" }}</h1>
+
+        <div class="nav">
+            {% if user %}
+                <a class="button" href="/profile">Employee Profile</a>
+                <a class="button" href="/apply-leave">Apply Leave</a>
+
+                {% if role == "admin" %}
+                    <a class="button" href="/admin">Admin Dashboard</a>
+                    <a class="button" href="/admin/attrition">Attrition Prediction</a>
+                {% endif %}
+
+                <a class="button logout" href="/logout">Logout</a>
+            {% else %}
+                <a class="button" href="/login">Login with Google</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

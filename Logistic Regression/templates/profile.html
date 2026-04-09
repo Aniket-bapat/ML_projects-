@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Profile</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #f0f6ff;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1e40af;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: 1px solid #c7d2fe;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 30px;
+            width: 100%;
+            padding: 12px;
+            background: #93c5fd;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #60a5fa;
+        }
+
+        .back {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Employee Profile</h2>
+
+        <form method="post">
+            <input type="number" name="age" value="{{ profile.age if profile else '' }}" required>
+
+
+            <label>Gender</label>
+            <input type="text" name="gender" value="{{ profile.gender if profile else '' }} " required>
+
+
+            <label>Department</label>
+            <input type="text" name="department" value="{{ profile.department if profile else '' }} " required>
+
+
+            <label>Job Role</label>
+            <input type="text" name="job_role" value="{{ profile.job_role if profile else '' }}" required>
+
+            <label>Job Level</label>
+            <input type="number" name="job_level" value="{{ profile.job_level if profile else '' }}" required>
+
+            <label>Monthly Income</label>
+            <input type="number" name="monthly_income" value="{{ profile.monthly_income if profile else '' }}" required>
+
+
+            <label>Years at Company</label>
+            <input type="number" name="years_at_company" value="{{ profile.years_at_company if profile else '' }}" required>
+            <label>Overtime</label>
+            <select name="overtime">
+                <option value="true" {% if profile and profile.overtime %}selected{% endif %}>Yes</option>
+                <option value="false" {% if profile and not profile.overtime %}selected{% endif %}>No</option>
+            </select>
+
+
+            <button type="submit">Save Profile</button>
+        </form>
+
+        <div class="back">
+            <a href="/">← Back to Home</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
