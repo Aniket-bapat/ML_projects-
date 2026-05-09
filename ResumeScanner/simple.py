@@ -27,3 +27,5 @@ score, skills = match_skills(resume_text, job_description_text)
 
 print(f"Match Score: {score:.2f}%")
 print(f"Matched Words: {', '.join(skills)}")
+
+ 
