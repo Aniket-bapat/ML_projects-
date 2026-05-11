@@ -1,0 +1,12 @@
+python
+django
+sql
+machine learning
+react
+tensorflow
+numpy
+pandas
+aws
+docker
+git
+fastapi

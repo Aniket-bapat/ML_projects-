@@ -8,7 +8,7 @@ job_description_text = ""
 for page in reader2.pages:
     job_description_text += page.extract_text() + "\n"
 
-def clean_text(text):
+def clean_text(text): 
     return text.lower().replace("\n"," ")
 
 def match_skills(resume,job_description):
@@ -27,5 +27,3 @@ score, skills = match_skills(resume_text, job_description_text)
 
 print(f"Match Score: {score:.2f}%")
 print(f"Matched Words: {', '.join(skills)}")
-
- 
